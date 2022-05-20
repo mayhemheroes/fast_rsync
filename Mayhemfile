@@ -1,0 +1,6 @@
+project: code-terror/fast_rsync
+target: fuzz
+
+cmds:
+  - cmd: ./fuzz
+    honggfuzz: true
