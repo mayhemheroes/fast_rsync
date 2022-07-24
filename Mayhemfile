@@ -1,5 +1,5 @@
 project: code-terror/fast_rsync
-target: fuzz
+target: librsync
 
 cmds:
   - cmd: ./fuzz
