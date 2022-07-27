@@ -7,7 +7,7 @@ RUN apt-get update && \
 RUN curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 RUN ${HOME}/.cargo/bin/rustup default nightly
 RUN ${HOME}/.cargo/bin/cargo install honggfuzz
-RUN git clone https://github.com/dropbox/fast_rsync.git
+ADD . /fast_rsync
 WORKDIR /fast_rsync/fuzz
 RUN RUSTFLAGS="-Znew-llvm-pass-manager=no" HFUZZ_RUN_ARGS="--run_time $run_time --exit_upon_crash" ${HOME}/.cargo/bin/cargo hfuzz build
 # Package Stage
